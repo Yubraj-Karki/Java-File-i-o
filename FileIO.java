@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -7,6 +10,7 @@ class FileIO {
 
         String[] fruits = { "Apple", "Banana", "Mango", "Orange" };
 
+        // File writer
         try {
 
             // Using BufferedWriter class to write on a file result.txt
@@ -20,6 +24,28 @@ class FileIO {
 
             writer.close(); // If we were not to close this, nothing gets written on the file
         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        // File reader
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("result.txt"));
+            try {
+                System.out.println(reader.readLine()); // returns a string, reads only one line
+
+                // so we use loop to read all the texts in the file
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+
+                reader.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
