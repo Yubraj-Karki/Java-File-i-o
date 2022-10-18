@@ -1,2 +1,6 @@
 Written on the wall
 new line
+Apple
+Banana
+Mango
+Orange
